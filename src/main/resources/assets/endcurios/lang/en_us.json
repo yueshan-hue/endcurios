@@ -1,5 +1,16 @@
 {
-  "itemGroup.endcurios": "Example Mod Tab",
+  "itemGroup.endcurios": "End Curios Tab",
   "block.endcurios.example_block": "Example Block",
-  "item.endcurios.example_item": "Example Item"
+  "item.endcurios.example_item": "Example Item",
+  "item.endcurios.example_accessory": "Example Accessory",
+  "item.endcurios.example_armor_accessory": "Example Armor Accessory",
+  "item.endcurios.example_hand_guard": "Example Hand Guard",
+
+  "endcurios.configuration.title": "End Curios Configs",
+  "endcurios.configuration.section.endcurios.common.toml": "End Curios Configs",
+  "endcurios.configuration.section.endcurios.common.toml.title": "End Curios Configs",
+  "endcurios.configuration.items": "Item List",
+  "endcurios.configuration.logDirtBlock": "Log Dirt Block",
+  "endcurios.configuration.magicNumberIntroduction": "Magic Number Text",
+  "endcurios.configuration.magicNumber": "Magic Number"
 }

@@ -30,6 +30,9 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import org.endfild.endcurios.curios.AccessoryItem;
+import org.endfild.endcurios.curios.ArmorAccessoryItem;
+import org.endfild.endcurios.curios.HandGuardItem;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
@@ -54,9 +57,17 @@ public class Endcurios {
     // Creates a new food item with the id "endcurios:example_id", nutrition 1 and saturation 2
     public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().nutrition(1).saturationModifier(2f).build()));
 
+    // Creates accessory items
+    public static final DeferredItem<AccessoryItem> EXAMPLE_ACCESSORY = ITEMS.register("example_accessory", () -> new AccessoryItem(new Item.Properties()));
+    public static final DeferredItem<ArmorAccessoryItem> EXAMPLE_ARMOR_ACCESSORY = ITEMS.register("example_armor_accessory", () -> new ArmorAccessoryItem(new Item.Properties()));
+    public static final DeferredItem<HandGuardItem> EXAMPLE_HAND_GUARD = ITEMS.register("example_hand_guard", () -> new HandGuardItem(new Item.Properties()));
+
     // Creates a creative tab with the id "endcurios:example_tab" for the example item, that is placed after the combat tab
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.endcurios")).withTabsBefore(CreativeModeTabs.COMBAT).icon(() -> EXAMPLE_ITEM.get().getDefaultInstance()).displayItems((parameters, output) -> {
         output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
+        output.accept(EXAMPLE_ACCESSORY.get()); // Add the accessory item
+        output.accept(EXAMPLE_ARMOR_ACCESSORY.get()); // Add the armor accessory item
+        output.accept(EXAMPLE_HAND_GUARD.get()); // Add the hand guard item
     }).build());
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
